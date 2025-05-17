@@ -4,58 +4,45 @@
 
 📄 **Theoretical proofs** and more **experimental data** are placed in the 📦 **Supplemental Material** file!
 
+## 📊 Results on Simulated RPCA tasks
+
+Run `python RpcaDemo.py`. The following table summarizes the denoising performance under a certain experiment:
+
+| Method | Description                         | ErrorL   | ErrorS   | TIME (s) |
+|--------|-------------------------------------|---------|---------|----------|
+| NN  | Nuclear Norm                          |  0.0237 | 0.0077  |   7.85   |
+| MNN-Diff   | First-Order Difference  | 0.0186 | 0.0060  | 5.48   |
+| MNN-Sobel   | Sobel Operator | 0.0011 | 0.0004  |  5.52   |
+| MNN-Lap1    | Laplacian type 1   | 0.0006 | 0.0002  |  4.83   |
+| MNN-Lap2    | Laplacian type 2   | 0.0100 | 0.0032  | 4.86   |
+
 ---
 
-## 📊 Results on PaviaU Data (Sparse Noise)
+## 📊 Results on Simulated MC tasks
 
-Run `HSIDenoising_Sparse_Demo.m`. The following table summarizes the denoising performance:
+Run `python McDemo.py`. The following table summarizes the denoising performance under a certain experiment:
+
+| Method | Description                         | ErrorL   |TIME (s) |
+|--------|-------------------------------------|---------|-----------|
+| NN  | Nuclear Norm                          |  0.0039 |   8.19   |
+| MNN-Diff   | First-Order Difference  | 0.0038 |5.38   |
+| MNN-Sobel   | Sobel Operator | 0.0021 |   5.42   |
+| MNN-Lap1    | Laplacian type 1   | 0.0020 |  4.86   |
+| MNN-Lap2    | Laplacian type 2   | 0.0023 |  4.83   |
+
+---
+
+## 📊 Results on chest_pet Data (MC)
+
+Run `python McReal.m`. The following table summarizes the denoising performance:
 
 | Method | Description                         | MPSNR   | MSSIM   | ERGAS   | TIME (s) |
 |--------|-------------------------------------|---------|---------|---------|----------|
-| Noise  | Noise Data                          |  8.5220 | 0.0460  | 1388.43 |   0.00   |
-| TNN    | Tensor Nuclear Norm                 | 35.7100 | 0.9420  |   86.44 | 100.67   |
-| ATNN   | Adaptive Tensor Nuclear Norm (Ours) | 41.5500 | 0.9920  |   32.42 |  38.80   |
-| CTV    | Correlated Total Variation          | 43.0400 | 0.9950  |   27.38 |  56.60   |
-| TCTV   | Tensor Correlated Total Variation   | 40.7400 | 0.9800  |   54.35 | 193.85   |
+| NN  | Nuclear Norm                           |  22.7923 | 0.6767  | 242.6524 |   61.74   |
+| MNN-Diff    | First-Order Difference                 | 29.8989 | 0.9241  |  107.8069 |  58.38   |
+| MNN-Sobel   | Sobel Operator | 33.3498 | 0.9648  |  69.3290 |  59.83   |
+| MNN-Lap1    | Laplacian type 1          | 34.6774 | 0.9726  |  59.2194 |  58.32   |
+| MNN-Lap2    | Laplacian type 2   | 34.2451 | 0.9707  |  62.1497 | 58.38   |
 
 ---
 
-## 📊 Results on PaviaU Data (Gaussian Noise)
-
-Run `HSIDenoising_Gaussian_Demo.m`. The following table summarizes the denoising performance:
-
-| Method | Description                         | MPSNR   | MSSIM   | ERGAS   | TIME (s) |
-|--------|-------------------------------------|---------|---------|---------|----------|
-| Noise  | Noise Data                          |  9.6830 | 0.0560  | 1165.63 |   0.00   |
-| TNN    | Tensor Nuclear Norm                 | 18.1000 | 0.2020  |  451.53 |  90.45   |
-| ATNN   | Adaptive Tensor Nuclear Norm (Ours) | 22.1900 | 0.4210  |  279.23 |  16.32   |
-| CTV    | Correlated Total Variation          | 27.1300 | 0.7390  |  162.07 |  54.86   |
-| TCTV   | Tensor Correlated Total Variation   | 22.3600 | 0.4480  |  275.79 | 184.83   |
-
----
-
-## 📈 Results on Simulated Data (RPCA Task)
-Run `RPCA_Simulated_DEMO.m`. The following table summarizes the denoising performance:
-
-| Method | Description                         | NMSE     | TIME (s) |
-|--------|-------------------------------------|----------|----------|
-| NN     | Nuclear Norm                        | 0.3487   | 0.17     |
-| TNN    | Tensor Nuclear Norm                 | 0.9456   | 1.88     |
-| ATNN   | Adaptive Tensor Nuclear Norm (Ours) | 0.0419   | 1.02     |
-| CTV    | Correlated Total Variation          | 0.1704   | 1.03     |
-| TCTV   | Tensor Correlated Total Variation   | 0.2693   | 6.08     |
-
----
-
-## 📈 Results on Simulated Data (MC Task)
-Run `TC_Simulated_DEMO.m`. The following table summarizes the denoising performance:
-
-| Method | Description                         | NMSE     | TIME (s) |
-|--------|-------------------------------------|----------|----------|
-| NN     | Nuclear Norm                        | 0.0021   | 0.12     |
-| TNN    | Tensor Nuclear Norm                 | 0.2126   | 3.48     |
-| ATNN   | Adaptive Tensor Nuclear Norm (Ours) | 0.0002   | 0.80     |
-| CTV    | Correlated Total Variation          | 0.0001   | 2.53     |
-| TCTV   | Tensor Correlated Total Variation   | 0.1126   | 9.78     |
-
----
